@@ -25,10 +25,11 @@ Examples:
 ```text
 btc@P2@Fix reconnect jitter@check startup burst behavior
 photos@P1@Update itinerary map line@line still missing in some cases
+giftlist@P3@Add birthday idea for dad@hiking boots size 11
 ```
 
 Rules:
-- `project`: `btc` or `photos`
+- `project`: `btc`, `photos`, or `giftlist`
 - `priority`: `P0`, `P1`, `P2`, `P3`
 - `title`: `td` requires minimum 15 characters (puller pads short titles)
 
@@ -38,6 +39,24 @@ Rules:
 - `drafts_send_to_td.js`: Drafts action script (POST to endpoint).
 - `td_do_puller.env`: local runtime config (endpoint/token/pull limit). **Secret**.
 - `DO_DRAFTS_SETUP.md`: operator notes for iPhone action setup.
+- `do-server/`: canonical copy of the DigitalOcean queue server code (see below).
+
+## DigitalOcean Queue Server
+
+The hosted endpoint at `https://gaylon.photos/td-capture` runs on a DigitalOcean droplet. The code in `do-server/` is the authoritative local copy — the droplet is **not** under git, so this repo is the source of truth.
+
+- **Droplet**: `root@134.199.211.199` (SSH alias `sshDO` in `~/.zshrc`). `gaylon.photos` resolves to Cloudflare, not the droplet — always SSH by IP.
+- **Path on droplet**: `/opt/td-capture/` (`server.py`, `.env`, `queue.db`).
+- **Service**: `systemctl {status,restart} td-capture.service`. Unit file at `/etc/systemd/system/td-capture.service` (mirrored here as `do-server/td-capture.service`).
+- **Project whitelist**: `server.py` validates the `project` field server-side. Allowed values must be kept in sync with `PROJECT_MAP` in `td_do_puller.py`. Currently: `btc`, `photos`, `giftlist`.
+
+### Deploying changes to the droplet
+
+```bash
+scp do-server/server.py root@134.199.211.199:/opt/td-capture/server.py
+ssh root@134.199.211.199 'systemctl restart td-capture.service && systemctl is-active td-capture.service'
+curl -fsS https://gaylon.photos/td-capture/health
+```
 
 ## Mac Setup
 

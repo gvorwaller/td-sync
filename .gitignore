@@ -1,5 +1,9 @@
 # Secrets / local runtime config
 td_do_puller.env
+do-server/.env
+
+# macOS
+.DS_Store
 
 # Runtime state and local logs
 logs/
@@ -10,3 +14,10 @@ td_icloud_processed_keys.txt
 
 # Local TD DB/state for this project
 .todos/
+.sidecar/
+.sidecar-agent
+.sidecar-task
+.sidecar-pr
+.sidecar-start.sh
+.sidecar-base
+.td-root

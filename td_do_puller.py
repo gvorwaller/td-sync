@@ -23,6 +23,7 @@ ISSUE_RE = re.compile(r'\b(td-[a-z0-9]+)\b', re.IGNORECASE)
 PROJECT_MAP = {
     'btc': '/Users/gaylonvorwaller/BTC-dashboard',
     'photos': '/Users/gaylonvorwaller/gaylonphotos',
+    'giftlist': '/Users/gaylonvorwaller/giftlist',
 }
 
 PRIORITIES = {'P0', 'P1', 'P2', 'P3'}

@@ -17,10 +17,11 @@ Examples:
 ```text
 btc@P2@Fix orderbook retry jitter@look at reconnect burst at startup
 photos@P3@Update family page copy@short copy cleanup
+giftlist@P3@Add birthday idea for dad@hiking boots size 11
 ```
 
 Allowed:
-- `project`: `btc` or `photos`
+- `project`: `btc`, `photos`, or `giftlist`
 - `priority`: `P0`, `P1`, `P2`, `P3`
 
 ## Drafts Action (iPhone)
