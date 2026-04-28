@@ -18,10 +18,11 @@ Examples:
 btc@P2@Fix orderbook retry jitter@look at reconnect burst at startup
 photos@P3@Update family page copy@short copy cleanup
 giftlist@P3@Add birthday idea for dad@hiking boots size 11
+gmailwiz@P2@Tune label rules@inbox-zero pass missing newsletters
 ```
 
 Allowed:
-- `project`: `btc`, `photos`, or `giftlist`
+- `project`: `btc`, `photos`, `giftlist`, or `gmailwiz`
 - `priority`: `P0`, `P1`, `P2`, `P3`
 
 ## Drafts Action (iPhone)

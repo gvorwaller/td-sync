@@ -143,8 +143,8 @@ class Handler(BaseHTTPRequestHandler):
             priority = payload.get('priority', '').strip().upper()
             title = payload.get('title', '').strip()
             notes = payload.get('notes', '').strip()
-            if project not in {'btc', 'photos', 'giftlist'}:
-                return self._json(400, {'ok': False, 'error': 'project must be btc, photos, or giftlist'})
+            if project not in {'btc', 'photos', 'giftlist', 'gmailwiz'}:
+                return self._json(400, {'ok': False, 'error': 'project must be btc, photos, giftlist, or gmailwiz'})
             if priority not in {'P0', 'P1', 'P2', 'P3'}:
                 return self._json(400, {'ok': False, 'error': 'priority must be P0..P3'})
             if not title:

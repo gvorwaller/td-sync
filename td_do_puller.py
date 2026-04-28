@@ -24,6 +24,7 @@ PROJECT_MAP = {
     'btc': '/Users/gaylonvorwaller/BTC-dashboard',
     'photos': '/Users/gaylonvorwaller/gaylonphotos',
     'giftlist': '/Users/gaylonvorwaller/giftlist',
+    'gmailwiz': '/Users/gaylonvorwaller/gmailwiz',
 }
 
 PRIORITIES = {'P0', 'P1', 'P2', 'P3'}

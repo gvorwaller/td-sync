@@ -26,10 +26,11 @@ Examples:
 btc@P2@Fix reconnect jitter@check startup burst behavior
 photos@P1@Update itinerary map line@line still missing in some cases
 giftlist@P3@Add birthday idea for dad@hiking boots size 11
+gmailwiz@P2@Tune label rules@inbox-zero pass missing newsletters
 ```
 
 Rules:
-- `project`: `btc`, `photos`, or `giftlist`
+- `project`: `btc`, `photos`, `giftlist`, or `gmailwiz`
 - `priority`: `P0`, `P1`, `P2`, `P3`
 - `title`: `td` requires minimum 15 characters (puller pads short titles)
 
@@ -48,7 +49,7 @@ The hosted endpoint at `https://gaylon.photos/td-capture` runs on a DigitalOcean
 - **Droplet**: `root@134.199.211.199` (SSH alias `sshDO` in `~/.zshrc`). `gaylon.photos` resolves to Cloudflare, not the droplet — always SSH by IP.
 - **Path on droplet**: `/opt/td-capture/` (`server.py`, `.env`, `queue.db`).
 - **Service**: `systemctl {status,restart} td-capture.service`. Unit file at `/etc/systemd/system/td-capture.service` (mirrored here as `do-server/td-capture.service`).
-- **Project whitelist**: `server.py` validates the `project` field server-side. Allowed values must be kept in sync with `PROJECT_MAP` in `td_do_puller.py`. Currently: `btc`, `photos`, `giftlist`.
+- **Project whitelist**: `server.py` validates the `project` field server-side. Allowed values must be kept in sync with `PROJECT_MAP` in `td_do_puller.py`. Currently: `btc`, `photos`, `giftlist`, `gmailwiz`.
 
 ### Deploying changes to the droplet
 
